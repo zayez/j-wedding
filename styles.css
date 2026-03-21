@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant:ital,wght@0,400;0,600;0,700&family=Cormorant+Infant:wght@700&family=Mea+Culpa&family=Tiro+Kannada&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant:ital,wght@0,400;0,600;0,700&family=Cormorant+Infant:wght@700&family=Mea+Culpa&family=Tiro+Kannada&display=swap");
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,14 +19,14 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 22px;
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,19 +43,71 @@ body {
 
 /* ====== PAGE 1 - INVITE ====== */
 
+/* Edge fade wrapper — makes decorative images feel infinite on wide screens */
+.edge-fade {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.location {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 561px) {
+  .edge-fade {
+    max-width: 1500px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 25%,
+      black 50%,
+      transparent
+    );
+  }
+
+  .floral-top {
+    aspect-ratio: 4 / 1;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .location {
+    aspect-ratio: 2 / 1;
+  }
+
+  .footer .rings {
+    aspect-ratio: 3 / 1;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
 .floral-top {
   width: 100%;
   height: auto;
   display: block;
   margin-top: -40px;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+  mask-image: linear-gradient(to bottom, black 60%, transparent);
 }
 
 .header-text {
-  font-family: 'Pinyon Script', cursive;
-  font-size: 2.4rem;
+  font-family: "Pinyon Script", cursive;
+  font-size: 3.5rem;
   color: var(--text);
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 /* Names section */
@@ -73,16 +127,16 @@ body {
 }
 
 .names .name .initial {
-  font-family: 'Pinyon Script', cursive;
+  font-family: "Pinyon Script", cursive;
 }
 
 .names .name .rest {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-weight: 400;
 }
 
 .names .ampersand {
-  font-family: 'Mea Culpa', cursive;
+  font-family: "Mea Culpa", cursive;
   font-size: 2.5rem;
   line-height: 1;
 }
@@ -113,7 +167,7 @@ body {
 }
 
 .message p {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.75rem;
   line-height: 1.46;
   color: var(--text);
@@ -131,7 +185,7 @@ body {
 }
 
 .calendar .month {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-weight: 700;
   font-size: 1.875rem;
   color: var(--text);
@@ -142,7 +196,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0;
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.875rem;
   color: var(--text);
   max-width: 95%;
@@ -163,19 +217,18 @@ body {
 }
 
 .calendar .year {
-  font-family: 'Cormorant Infant', serif;
+  font-family: "Cormorant Infant", serif;
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--text);
 }
 
 /* Location section */
-.location {
+.location-wrapper {
   position: relative;
   width: 100%;
   margin: 2rem 0;
   overflow: hidden;
-  aspect-ratio: 512 / 327;
 }
 
 .location img.location-bg {
@@ -185,9 +238,11 @@ body {
   display: block;
 }
 
-.location .location-info {
+.location-info {
   position: absolute;
-  inset: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,36 +250,43 @@ body {
   gap: 2px;
   text-align: center;
   color: var(--location-text);
-  padding: 1rem;
-  background: rgba(167, 141, 92, 0.9);
-  border-radius: 6px;
+  padding: 3rem;
 }
 
-.location .location-info .location-title {
-  font-family: 'Pinyon Script', cursive;
+.location-info::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  background: rgba(167, 141, 92, 0.9);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.location-info .location-title {
+  font-family: "Pinyon Script", cursive;
   font-size: 2.4rem;
 }
 
-.location .location-info .location-address {
-  font-family: 'Cormorant', serif;
+.location-info .location-address {
+  font-family: "Cormorant", serif;
   font-weight: 600;
   font-size: 0.9375rem;
   max-width: 220px;
 }
 
-.location .location-info .location-venue {
-  font-family: 'Tiro Kannada', serif;
+.location-info .location-venue {
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
 }
 
-.location .location-info .location-time-label {
-  font-family: 'Tiro Kannada', serif;
+.location-info .location-time-label {
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
   text-transform: uppercase;
 }
 
-.location .location-info .location-time {
-  font-family: 'Tiro Kannada', serif;
+.location-info .location-time {
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
 }
 
@@ -239,7 +301,7 @@ body {
 }
 
 .cta-section h2 {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-weight: 700;
   font-size: 1.3rem;
   text-transform: uppercase;
@@ -251,12 +313,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 210px;
-  height: 50px;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   text-decoration: none;
   color: black;
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   cursor: pointer;
   border: none;
   transition: opacity 0.2s;
@@ -292,6 +353,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .footer .rings {
@@ -302,7 +364,7 @@ body {
 }
 
 .footer p {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: var(--text);
 }
@@ -319,20 +381,20 @@ body {
 }
 
 .gift-header h1 {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-weight: 400;
   font-size: 1.875rem;
   color: black;
 }
 
 .gift-header .date {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
   color: black;
 }
 
 .gift-description {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: black;
   text-align: justify;
@@ -373,7 +435,7 @@ body {
 }
 
 .gift-item .gift-image .price {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
   color: black;
   text-align: center;
@@ -384,7 +446,7 @@ body {
 }
 
 .gift-item .gift-info h3 {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
   font-weight: 400;
   color: black;
@@ -392,7 +454,7 @@ body {
 }
 
 .gift-item .gift-info p {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: black;
   text-align: justify;
@@ -410,20 +472,20 @@ body {
 }
 
 .pix-section h2 {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 1.5625rem;
   font-weight: 400;
   color: black;
 }
 
 .pix-section .pix-date {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 1.25rem;
   color: black;
 }
 
 .pix-section .pix-instructions {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: black;
   max-width: 280px;
@@ -437,7 +499,7 @@ body {
 }
 
 .pix-section .pix-key-label {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: black;
 }
@@ -448,7 +510,7 @@ body {
 }
 
 .gift-footer p {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.625rem;
   color: black;
 }
@@ -457,7 +519,7 @@ body {
 .back-link {
   display: inline-block;
   margin: 1.5rem 0;
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.875rem;
   color: var(--text);
   text-decoration: underline;
@@ -489,19 +551,19 @@ body {
 }
 
 .auth-title {
-  font-family: 'Pinyon Script', cursive;
+  font-family: "Pinyon Script", cursive;
   font-size: 2.5rem;
   color: var(--names);
 }
 
 .auth-subtitle {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.875rem;
   color: var(--text);
 }
 
 #auth-input {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 1rem;
   padding: 0.6rem 1rem;
   border: 1.5px solid var(--gray-btn);
@@ -518,7 +580,7 @@ body {
 }
 
 #auth-btn {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.9375rem;
   background: var(--gold);
   color: black;
@@ -534,7 +596,7 @@ body {
 }
 
 #auth-error {
-  font-family: 'Tiro Kannada', serif;
+  font-family: "Tiro Kannada", serif;
   font-size: 0.75rem;
   color: #a04040;
   min-height: 1rem;
@@ -548,7 +610,7 @@ body {
   }
 
   .header-text {
-    font-size: 2.8rem;
+    font-size: 3.8rem;
   }
 
   .names .name {
@@ -562,7 +624,7 @@ body {
   }
 
   .header-text {
-    font-size: 3rem;
+    font-size: 4.2rem;
   }
 
   .names .name {
