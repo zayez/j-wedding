@@ -342,8 +342,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 2.2rem;
-  min-width: 270px;
+  padding: 1.3rem 3.5rem;
+  min-width: 320px;
   text-decoration: none;
   font-family: "Cormorant", serif;
   cursor: pointer;
@@ -373,17 +373,17 @@ body {
 }
 
 .btn-label {
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 .btn-sub {
   font-family: "Crimson Pro", serif;
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 300;
   opacity: 0.6;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 /* ====== FOOTER ====== */

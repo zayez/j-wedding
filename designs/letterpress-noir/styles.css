@@ -393,8 +393,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 2rem;
-  min-width: 280px;
+  padding: 1.3rem 3.5rem;
+  min-width: 320px;
   text-decoration: none;
   font-family: "Cormorant", serif;
   cursor: pointer;
@@ -424,16 +424,16 @@ body {
 }
 
 .btn-label {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 .btn-sub {
   font-family: "EB Garamond", serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   opacity: 0.6;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 /* ====== FOOTER ====== */
