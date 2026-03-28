@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presentear — Joice & Pedro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="gift-page">
+      <a href="index.html" class="back-link">&larr; Voltar</a>
+
+      <header class="gift-hero" data-reveal>
+        <h1 class="gift-title">Mendoza</h1>
+        <p class="gift-country">Argentina</p>
+        <div class="ornament-line"></div>
+        <p class="gift-date">16/05/2025</p>
+      </header>
+
+      <p class="gift-desc" data-reveal>
+        Entre montanhas nevadas e vinhedos infinitos, Mendoza é o cenário
+        perfeito para começarmos nossa vida juntos. Uma das regiões vinícolas
+        mais bonitas do mundo, onde cada pôr do sol é uma pintura.
+      </p>
+
+      <!-- Botanical divider -->
+      <div class="botanical-divider" data-reveal aria-hidden="true">
+        <svg viewBox="0 0 200 30" fill="none">
+          <path d="M10 15 C40 12 70 18 100 15 C130 12 160 18 190 15" stroke="#8a9a7b" stroke-width="0.6" stroke-linecap="round" opacity="0.35"/>
+          <ellipse cx="50" cy="10" rx="10" ry="4.5" transform="rotate(-12 50 10)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+          <ellipse cx="100" cy="21" rx="9" ry="4" transform="rotate(10 100 21)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+          <ellipse cx="150" cy="10" rx="10" ry="4.5" transform="rotate(-8 150 10)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+        </svg>
+      </div>
+
+      <div class="gift-grid">
+        <div class="gift-card" data-reveal>
+          <h3>Rota dos Vinhos</h3>
+          <p class="gift-price">R$250</p>
+          <p class="gift-card-desc">
+            Passeio pelo centro histórico, parques e mercados locais cheios de
+            cultura argentina
+          </p>
+        </div>
+
+        <div class="gift-card" data-reveal data-reveal-delay="1">
+          <h3>Cordilheira dos Andes</h3>
+          <p class="gift-price">R$250</p>
+          <p class="gift-card-desc">
+            Degustação de vinhos finos numa vinícola histórica com vista para os
+            Andes
+          </p>
+        </div>
+
+        <div class="gift-card" data-reveal data-reveal-delay="2">
+          <h3>Pôr do sol nos vinhedos</h3>
+          <p class="gift-price">R$250</p>
+          <p class="gift-card-desc">Tarde de massagem e tratamentos</p>
+        </div>
+      </div>
+
+      <section class="pix" data-reveal>
+        <h2>Presentear via PIX</h2>
+        <p class="pix-date">16/05/2025</p>
+        <p class="pix-instructions">
+          Escaneie o QR Code ou copie a chave abaixo.<br />
+          Não esqueça de mencionar o nome do passeio na mensagem!
+        </p>
+        <img src="assets/qrcode.png" alt="QR Code PIX" class="pix-qr" />
+        <p class="pix-key-label">Ou copie a chave PIX:</p>
+        <p class="pix-key">03591515078</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-botanical">
+        <svg viewBox="0 0 60 80" fill="none" aria-hidden="true">
+          <path d="M30 75 C29 55 32 40 30 20 C29 10 30 2 30 0" stroke="#8a9a7b" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+          <ellipse cx="20" cy="55" rx="12" ry="5.5" transform="rotate(-25 20 55)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+          <ellipse cx="40" cy="45" rx="12" ry="5.5" transform="rotate(22 40 45)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+          <ellipse cx="22" cy="30" rx="10" ry="4.5" transform="rotate(-18 22 30)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+          <ellipse cx="38" cy="18" rx="8" ry="3.5" transform="rotate(15 38 18)" stroke="#8a9a7b" stroke-width="0.5" opacity="0.25"/>
+        </svg>
+      </div>
+      <p>Feito com carinho · Zanatta &amp; Toralles · 2026</p>
+    </footer>
+
+    <script src="reveal.js"></script>
+  </body>
+</html>

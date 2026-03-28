@@ -3,121 +3,278 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joice & Pedro — Casamento</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Joice & Pedro — Design Previews</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #141311;
+        --card: #1c1a17;
+        --card-hover: #242220;
+        --border: rgba(255, 255, 255, 0.06);
+        --border-hover: rgba(201, 168, 76, 0.3);
+        --gold: #c9a84c;
+        --cream: #e8e0cc;
+        --muted: #7a756a;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--cream);
+        font-family: "EB Garamond", serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 1.5rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1 {
+        font-family: "Cormorant", serif;
+        font-weight: 300;
+        font-size: 1.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-style: italic;
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 3rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        width: 100%;
+        max-width: 560px;
+      }
+
+      .card {
+        display: block;
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 2rem 1.8rem;
+        text-decoration: none;
+        color: var(--cream);
+        transition: all 0.35s ease;
+      }
+
+      .card:hover {
+        background: var(--card-hover);
+        border-color: var(--border-hover);
+      }
+
+      .card-name {
+        font-family: "Cormorant", serif;
+        font-weight: 600;
+        font-size: 1.15rem;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.4rem;
+      }
+
+      .card-desc {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .card-tag {
+        display: inline-block;
+        margin-top: 0.8rem;
+        font-family: "Cormorant", serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        opacity: 0.7;
+      }
+
+      @media (min-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+    <style>
+      #auth-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .auth-box {
+        text-align: center;
+        max-width: 320px;
+        padding: 2rem;
+      }
+
+      .auth-title {
+        font-family: "Cormorant", serif;
+        font-weight: 300;
+        font-size: 1.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.3rem;
+      }
+
+      .auth-subtitle {
+        font-style: italic;
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 1.8rem;
+      }
+
+      #auth-input {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--cream);
+        font-family: "EB Garamond", serif;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0.8rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      #auth-input:focus {
+        border-color: var(--border-hover);
+      }
+
+      #auth-input::placeholder {
+        color: var(--muted);
+      }
+
+      #auth-btn {
+        display: block;
+        width: 100%;
+        padding: 0.7rem 1rem;
+        background: transparent;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        font-family: "Cormorant", serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #auth-btn:hover {
+        background: var(--gold);
+        color: var(--bg);
+      }
+
+      #auth-error {
+        color: #c47a7a;
+        font-size: 0.85rem;
+        margin-top: 0.8rem;
+        min-height: 1.2em;
+      }
+    </style>
   </head>
   <body>
-    <!-- Floral decoration top -->
-    <div class="edge-fade">
-      <img
-        src="assets/floral-top.png"
-        alt=""
-        class="floral-top"
-        aria-hidden="true"
-      />
-    </div>
+    <h1>Joice & Pedro</h1>
+    <p class="subtitle">Design previews</p>
 
-    <div class="page">
-      <!-- Header -->
-      <p class="header-text">Vamos nos casar!</p>
-
-      <!-- Names -->
-      <div class="names">
-        <p class="name">
-          <span class="initial">J</span><span class="rest">oice</span>
-          <span class="initial"> Z</span><span class="rest">anatta</span>
+    <div class="grid">
+      <a href="designs/original/index.html" class="card">
+        <p class="card-name">Original</p>
+        <p class="card-desc">
+          Warm beige with floral imagery, serif typography, and soft botanical
+          tones.
         </p>
-        <p class="ampersand">&amp;</p>
-        <p class="name">
-          <span class="initial">P</span><span class="rest">edro</span>
-          <span class="initial"> T</span><span class="rest">oralles</span>
+        <span class="card-tag">Light · Images</span>
+      </a>
+
+      <a href="designs/letterpress-noir/index.html" class="card">
+        <p class="card-name">Letterpress Noir</p>
+        <p class="card-desc">
+          Dark charcoal with gold foil typography, no images, grain texture, and
+          staggered entrance animations.
         </p>
-      </div>
+        <span class="card-tag">Dark · Typography</span>
+      </a>
 
-      <!-- Message -->
-      <div class="message">
-        <img
-          src="assets/leaf-left.svg"
-          alt=""
-          class="leaf leaf-left"
-          aria-hidden="true"
-        />
-        <p>Adoraríamos que você nos prestigiasse neste momento</p>
-        <img
-          src="assets/leaf-right.svg"
-          alt=""
-          class="leaf leaf-right"
-          aria-hidden="true"
-        />
-      </div>
-
-      <!-- Calendar -->
-      <div class="calendar">
-        <p class="month">MAIO</p>
-        <div class="days">
-          <span class="day">11</span>
-          <span class="day">12</span>
-          <span class="day">13</span>
-          <span class="day">14</span>
-          <span class="day">15</span>
-          <span class="day highlighted">16</span>
-          <span class="day">17</span>
-          <span class="day">18</span>
-          <span class="day">19</span>
-          <span class="day">20</span>
-          <span class="day">21</span>
-        </div>
-        <p class="year">2026</p>
-      </div>
-    </div>
-
-    <!-- Location -->
-    <div class="location-wrapper">
-      <div class="edge-fade">
-        <div class="location">
-          <img
-            src="assets/location-bg.png"
-            alt="Le Bistrot Gourmet"
-            class="location-bg"
-          />
-        </div>
-      </div>
-      <div class="location-info page">
-        <p class="location-title">Local</p>
-        <p class="location-address">
-          Alameda Alípio César, 22 - Boa Vista, Porto Alegre - RS, 91340-310
+      <a href="designs/fine-art/index.html" class="card">
+        <p class="card-name">Fine Art</p>
+        <p class="card-desc">
+          Sage and cream with inline SVG botanical art, watercolor CSS washes,
+          day program timeline, and dress code swatches. No photos.
         </p>
-        <p class="location-venue">Le Bistrot Gourmet</p>
-        <p class="location-time-label">Início:</p>
-        <p class="location-time">19:00h</p>
-      </div>
+        <span class="card-tag">Light · Botanical SVG</span>
+      </a>
     </div>
+    <script>
+      (() => {
+        const PASSWORD = 'hulkenbergdagoat';
+        const KEY = 'wedding_auth';
 
-    <div class="page">
-      <!-- CTA -->
-      <div class="cta-section">
-        <h2>Quer nos presentear?</h2>
-        <a href="presente.html" class="btn btn-gold">
-          <span class="btn-title">Presentear a viagem</span>
-          <span class="btn-subtitle"
-            >Contribua via PIX com o valor que deseja</span
-          >
-        </a>
-        <a href="#confirmar" class="btn btn-gray">
-          <span class="btn-title">Confirmar presença</span>
-          <span class="btn-subtitle">Nos avise se você vai comparecer</span>
-        </a>
-      </div>
-    </div>
+        if (sessionStorage.getItem(KEY) === 'true') return;
 
-    <!-- Footer -->
-    <div class="footer">
-      <div class="edge-fade">
-        <img src="assets/rings.png" alt="Alianças" class="rings" />
-      </div>
-      <p>Feito com carinho · Zanatta &amp; Toralles · 2026</p>
-    </div>
+        document.body.style.visibility = 'hidden';
 
-    <script src="auth.js"></script>
+        const overlay = document.createElement('div');
+        overlay.id = 'auth-overlay';
+        overlay.innerHTML = `
+          <div class="auth-box">
+            <p class="auth-title">Joice & Pedro</p>
+            <p class="auth-subtitle">Digite a senha para acessar</p>
+            <input type="password" id="auth-input" placeholder="Senha" autocomplete="off">
+            <button id="auth-btn">Entrar</button>
+            <p id="auth-error"></p>
+          </div>
+        `;
+        document.body.prepend(overlay);
+        document.body.style.visibility = 'visible';
+
+        const input = document.getElementById('auth-input');
+        const btn = document.getElementById('auth-btn');
+        const error = document.getElementById('auth-error');
+
+        function attempt() {
+          if (input.value === PASSWORD) {
+            sessionStorage.setItem(KEY, 'true');
+            overlay.remove();
+          } else {
+            error.textContent = 'Senha incorreta';
+            input.value = '';
+            input.focus();
+          }
+        }
+
+        btn.addEventListener('click', attempt);
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') attempt();
+        });
+
+        input.focus();
+      })();
+    </script>
   </body>
 </html>
