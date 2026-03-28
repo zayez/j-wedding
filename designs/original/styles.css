@@ -36,7 +36,7 @@ body {
 
 .page {
   width: 100%;
-  max-width: 430px;
+  max-width: 540px;
   position: relative;
   overflow: hidden;
 }
@@ -103,18 +103,19 @@ body {
 
 .header-text {
   font-family: "Pinyon Script", cursive;
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: var(--text);
   text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  line-height: 1.05;
 }
 
 /* Names section */
 .names {
   text-align: center;
   color: var(--names);
-  margin: 2.5rem 0 1.5rem;
+  margin: 2rem 0 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,7 +123,7 @@ body {
 }
 
 .names .name {
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   line-height: 1.1;
 }
 
@@ -137,7 +138,7 @@ body {
 
 .names .ampersand {
   font-family: "Mea Culpa", cursive;
-  font-size: 2.5rem;
+  font-size: 3.8rem;
   line-height: 1;
 }
 
@@ -148,8 +149,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 2rem;
-  padding: 0.5rem 0;
+  margin: 2rem 2rem;
+  padding: 1.5rem 0;
 }
 
 .message .leaf {
@@ -168,26 +169,26 @@ body {
 
 .message p {
   font-family: "Tiro Kannada", serif;
-  font-size: 0.75rem;
-  line-height: 1.46;
+  font-size: 1rem;
+  line-height: 1.55;
   color: var(--text);
-  max-width: 153px;
+  max-width: 200px;
 }
 
 /* Calendar section */
 .calendar {
   text-align: center;
-  margin: 2rem 0;
+  margin: 3.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .calendar .month {
   font-family: "Cormorant", serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 2.8rem;
   color: var(--text);
 }
 
@@ -219,7 +220,7 @@ body {
 .calendar .year {
   font-family: "Cormorant Infant", serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   color: var(--text);
 }
 
@@ -227,7 +228,7 @@ body {
 .location-wrapper {
   position: relative;
   width: 100%;
-  margin: 2rem 0;
+  margin: 4rem 0;
   overflow: hidden;
 }
 
@@ -247,7 +248,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 6px;
   text-align: center;
   color: var(--location-text);
   padding: 3rem;
@@ -264,46 +265,46 @@ body {
 
 .location-info .location-title {
   font-family: "Pinyon Script", cursive;
-  font-size: 2.4rem;
+  font-size: 3.5rem;
 }
 
 .location-info .location-address {
   font-family: "Cormorant", serif;
   font-weight: 600;
-  font-size: 0.9375rem;
-  max-width: 220px;
+  font-size: 1.15rem;
+  max-width: 240px;
 }
 
 .location-info .location-venue {
   font-family: "Tiro Kannada", serif;
-  font-size: 0.9375rem;
+  font-size: 1.1rem;
 }
 
 .location-info .location-time-label {
   font-family: "Tiro Kannada", serif;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
 .location-info .location-time {
   font-family: "Tiro Kannada", serif;
-  font-size: 0.9375rem;
+  font-size: 1.15rem;
 }
 
 /* CTA section */
 .cta-section {
   text-align: center;
-  margin: 3rem 0 2rem;
+  margin: 5rem 0 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .cta-section h2 {
   font-family: "Cormorant", serif;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.9rem;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -313,7 +314,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  padding: 0.9rem 2.5rem;
   border-radius: 20px;
   text-decoration: none;
   color: black;
@@ -336,23 +337,23 @@ body {
 }
 
 .btn .btn-title {
-  font-size: 0.9375rem;
+  font-size: 1.15rem;
   line-height: 1.4;
 }
 
 .btn .btn-subtitle {
-  font-size: 0.625rem;
+  font-size: 0.8rem;
   line-height: 1.2;
 }
 
 /* Footer */
 .footer {
   text-align: center;
-  margin: 2rem 0;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -606,29 +607,57 @@ body {
 
 @media (min-width: 480px) {
   .page {
-    max-width: 480px;
+    max-width: 580px;
   }
 
   .header-text {
-    font-size: 3.8rem;
+    font-size: 5rem;
   }
 
   .names .name {
-    font-size: 2.6rem;
+    font-size: 3.2rem;
+  }
+
+  .names .ampersand {
+    font-size: 4rem;
+  }
+
+  .calendar .month {
+    font-size: 3.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .page {
-    max-width: 560px;
+    max-width: 680px;
   }
 
   .header-text {
-    font-size: 4.2rem;
+    font-size: 6.5rem;
   }
 
   .names .name {
-    font-size: 2.8rem;
+    font-size: 4rem;
+  }
+
+  .names .ampersand {
+    font-size: 5rem;
+  }
+
+  .calendar .month {
+    font-size: 4.5rem;
+  }
+
+  .calendar .year {
+    font-size: 2.2rem;
+  }
+
+  .location-info .location-title {
+    font-size: 4.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2.4rem;
   }
 
   .gift-list {

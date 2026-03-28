@@ -3,117 +3,250 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joice & Pedro — Design Previews</title>
+    <title>J & P — Design Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap");
-
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
       :root {
-        --bg: #141311;
-        --card: #1c1a17;
-        --card-hover: #242220;
-        --border: rgba(255, 255, 255, 0.06);
-        --border-hover: rgba(201, 168, 76, 0.3);
-        --gold: #c9a84c;
-        --cream: #e8e0cc;
-        --muted: #7a756a;
+        --bg:         #f9f7f4;
+        --bg-lift:    #f3f0ec;
+        --text:       #1a1916;
+        --muted:      #b0aaa3;
+        --muted-mid:  #7a756e;
+        --accent:     #8a6a3a;
+        --border:     rgba(26, 25, 22, 0.08);
       }
 
-      html {
-        font-size: 16px;
-      }
+      html { font-size: 16px; }
 
       body {
         background: var(--bg);
-        color: var(--cream);
-        font-family: "EB Garamond", serif;
-        min-height: 100vh;
+        color: var(--text);
+        font-family: 'DM Mono', monospace;
+        min-height: 100dvh;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 4rem 1.5rem;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
 
-      h1 {
-        font-family: "Cormorant", serif;
-        font-weight: 300;
-        font-size: 1.6rem;
-        letter-spacing: 0.12em;
+      /* Grain texture */
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.025;
+        pointer-events: none;
+        z-index: 500;
+      }
+
+      /* ---- HEADER ---- */
+      .site-header {
+        padding: 1.8rem 3rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+        opacity: 0;
+        animation: fadeIn 1s 0.05s ease forwards;
+      }
+
+      .header-id {
+        font-size: 0.6rem;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 0.5rem;
+        color: var(--muted-mid);
       }
 
-      .subtitle {
-        font-style: italic;
+      .header-count {
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
         color: var(--muted);
-        font-size: 0.95rem;
-        margin-bottom: 3rem;
       }
 
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        width: 100%;
-        max-width: 560px;
+      /* ---- ENTRIES ---- */
+      .entries {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
-      .card {
-        display: block;
-        background: var(--card);
-        border: 1px solid var(--border);
-        padding: 2rem 1.8rem;
+      .entry {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        padding: 0 3rem;
+        border-bottom: 1px solid var(--border);
         text-decoration: none;
-        color: var(--cream);
-        transition: all 0.35s ease;
+        color: inherit;
+        overflow: hidden;
+        transition: background 0.5s ease;
+        flex: 1;
+        opacity: 0;
+        animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       }
 
-      .card:hover {
-        background: var(--card-hover);
-        border-color: var(--border-hover);
+      .entry:last-child { border-bottom: none; }
+
+      .entry:nth-child(1) { animation-delay: 0.2s; }
+      .entry:nth-child(2) { animation-delay: 0.35s; }
+      .entry:nth-child(3) { animation-delay: 0.5s; }
+
+      .entry:hover { background: var(--bg-lift); }
+
+      /* Left accent line — sweeps up from bottom */
+      .entry::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 1.5px;
+        background: var(--accent);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      .card-name {
-        font-family: "Cormorant", serif;
-        font-weight: 600;
-        font-size: 1.15rem;
-        letter-spacing: 0.06em;
-        margin-bottom: 0.4rem;
+      .entry:hover::before { transform: scaleY(1); }
+
+      /* Bottom sweep line */
+      .entry::after {
+        content: '';
+        position: absolute;
+        bottom: -1px; left: 0;
+        width: 0; height: 1px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        opacity: 0.5;
+        transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      .card-desc {
-        font-size: 0.9rem;
-        color: var(--muted);
-        line-height: 1.55;
+      .entry:hover::after { width: 55%; }
+
+      .entry-num {
+        font-size: 0.58rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        opacity: 0.45;
+        flex-shrink: 0;
+        min-width: 2.5ch;
+        transition: opacity 0.3s;
       }
 
-      .card-tag {
-        display: inline-block;
-        margin-top: 0.8rem;
-        font-family: "Cormorant", serif;
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
+      .entry:hover .entry-num { opacity: 1; }
+
+      .entry-content { flex: 1; min-width: 0; }
+
+      .entry-name {
+        font-family: 'Spectral', serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: clamp(1.7rem, 4.5vw, 3rem);
+        color: var(--text);
+        line-height: 1.05;
+        margin-bottom: 0.6rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.3s;
+      }
+
+      .entry:hover .entry-name { color: #000; }
+
+      .entry-tags {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+
+      .entry-tag {
+        font-size: 0.57rem;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: var(--gold);
-        opacity: 0.7;
+        color: var(--muted);
+        transition: color 0.3s;
       }
 
-      @media (min-width: 560px) {
-        .grid {
-          grid-template-columns: 1fr 1fr;
-        }
+      .entry:hover .entry-tag { color: var(--muted-mid); }
+
+      .entry-tag + .entry-tag {
+        margin-left: 1.2rem;
       }
-    </style>
-    <style>
+
+      .entry-tag + .entry-tag::before {
+        content: '·';
+        margin-right: 1.2rem;
+        opacity: 0.3;
+      }
+
+      /* Ghost Roman numeral — large faint background numeral */
+      .entry-ghost {
+        position: absolute;
+        right: 3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: 'Spectral', serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: clamp(5rem, 12vw, 10rem);
+        color: var(--text);
+        opacity: 0;
+        transition: opacity 0.7s ease;
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+        letter-spacing: -0.01em;
+      }
+
+      .entry:hover .entry-ghost { opacity: 0.055; }
+
+      /* Arrow */
+      .entry-arrow {
+        font-size: 0.85rem;
+        color: var(--muted);
+        flex-shrink: 0;
+        transform: translateX(-12px);
+        opacity: 0;
+        transition:
+          transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.45s,
+          color 0.3s;
+      }
+
+      .entry:hover .entry-arrow {
+        transform: translateX(0);
+        opacity: 1;
+        color: var(--accent);
+      }
+
+      /* ---- FOOTER ---- */
+      .site-footer {
+        padding: 1.1rem 3rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        opacity: 0;
+        animation: fadeIn 1.2s 0.7s ease forwards;
+      }
+
+      .footer-text {
+        font-size: 0.54rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ---- AUTH ---- */
       #auth-overlay {
         position: fixed;
         inset: 0;
@@ -126,110 +259,167 @@
 
       .auth-box {
         text-align: center;
-        max-width: 320px;
-        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.1rem;
+        max-width: 260px;
+        width: 100%;
+        padding: 0 1.5rem;
       }
 
       .auth-title {
-        font-family: "Cormorant", serif;
+        font-family: 'Spectral', serif;
+        font-style: italic;
         font-weight: 300;
-        font-size: 1.6rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 0.3rem;
+        font-size: 1.75rem;
+        color: var(--text);
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        margin-bottom: 0;
       }
 
       .auth-subtitle {
-        font-style: italic;
+        font-size: 0.58rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
         color: var(--muted);
-        font-size: 0.9rem;
-        margin-bottom: 1.8rem;
+        margin-bottom: 0.3rem;
       }
 
       #auth-input {
-        display: block;
         width: 100%;
-        padding: 0.75rem 1rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        color: var(--cream);
-        font-family: "EB Garamond", serif;
-        font-size: 1rem;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        font-family: 'DM Mono', monospace;
+        font-size: 0.85rem;
         text-align: center;
-        margin-bottom: 0.8rem;
+        padding: 0.65rem 0;
         outline: none;
-        transition: border-color 0.3s ease;
+        letter-spacing: 0.12em;
+        transition: border-color 0.35s;
       }
 
       #auth-input:focus {
-        border-color: var(--border-hover);
+        border-color: rgba(201, 168, 124, 0.45);
       }
 
       #auth-input::placeholder {
         color: var(--muted);
+        letter-spacing: 0.12em;
       }
 
       #auth-btn {
-        display: block;
-        width: 100%;
-        padding: 0.7rem 1rem;
         background: transparent;
-        border: 1px solid var(--gold);
-        color: var(--gold);
-        font-family: "Cormorant", serif;
-        font-size: 0.85rem;
-        letter-spacing: 0.15em;
+        border: 1px solid var(--border);
+        color: var(--muted-mid);
+        font-family: 'DM Mono', monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.3em;
         text-transform: uppercase;
+        padding: 0.65rem 2.2rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: border-color 0.3s, color 0.3s;
+        margin-top: 0.3rem;
       }
 
       #auth-btn:hover {
-        background: var(--gold);
-        color: var(--bg);
+        border-color: var(--accent);
+        color: var(--accent);
       }
 
       #auth-error {
-        color: #c47a7a;
-        font-size: 0.85rem;
-        margin-top: 0.8rem;
-        min-height: 1.2em;
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+        color: #b87070;
+        min-height: 1em;
+      }
+
+      /* ---- ANIMATIONS ---- */
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 560px) {
+        .site-header,
+        .entry,
+        .site-footer {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+
+        .entry { gap: 1.5rem; }
+
+        .entry-ghost,
+        .entry-arrow { display: none; }
       }
     </style>
   </head>
   <body>
-    <h1>Joice & Pedro</h1>
-    <p class="subtitle">Design previews</p>
 
-    <div class="grid">
-      <a href="designs/original/index.html" class="card">
-        <p class="card-name">Original</p>
-        <p class="card-desc">
-          Warm beige with floral imagery, serif typography, and soft botanical
-          tones.
-        </p>
-        <span class="card-tag">Light · Images</span>
+    <header class="site-header">
+      <span class="header-id">Joice &amp; Pedro · 2026</span>
+      <span class="header-count">3 variantes</span>
+    </header>
+
+    <main class="entries">
+
+      <a href="designs/original/index.html" class="entry">
+        <span class="entry-num">01</span>
+        <div class="entry-content">
+          <p class="entry-name">Original</p>
+          <div class="entry-tags">
+            <span class="entry-tag">Light</span>
+            <span class="entry-tag">Floral imagery</span>
+            <span class="entry-tag">Warm beige</span>
+          </div>
+        </div>
+        <span class="entry-ghost">I</span>
+        <span class="entry-arrow">→</span>
       </a>
 
-      <a href="designs/letterpress-noir/index.html" class="card">
-        <p class="card-name">Letterpress Noir</p>
-        <p class="card-desc">
-          Dark charcoal with gold foil typography, no images, grain texture, and
-          staggered entrance animations.
-        </p>
-        <span class="card-tag">Dark · Typography</span>
+      <a href="designs/letterpress-noir/index.html" class="entry">
+        <span class="entry-num">02</span>
+        <div class="entry-content">
+          <p class="entry-name">Letterpress Noir</p>
+          <div class="entry-tags">
+            <span class="entry-tag">Dark</span>
+            <span class="entry-tag">Gold foil</span>
+            <span class="entry-tag">Typography only</span>
+          </div>
+        </div>
+        <span class="entry-ghost">II</span>
+        <span class="entry-arrow">→</span>
       </a>
 
-      <a href="designs/fine-art/index.html" class="card">
-        <p class="card-name">Fine Art</p>
-        <p class="card-desc">
-          Sage and cream with inline SVG botanical art, watercolor CSS washes,
-          day program timeline, and dress code swatches. No photos.
-        </p>
-        <span class="card-tag">Light · Botanical SVG</span>
+      <a href="designs/fine-art/index.html" class="entry">
+        <span class="entry-num">03</span>
+        <div class="entry-content">
+          <p class="entry-name">Fine Art</p>
+          <div class="entry-tags">
+            <span class="entry-tag">Light</span>
+            <span class="entry-tag">Sage &amp; cream</span>
+            <span class="entry-tag">SVG botanical</span>
+          </div>
+        </div>
+        <span class="entry-ghost">III</span>
+        <span class="entry-arrow">→</span>
       </a>
-    </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-text">Uso interno · Não compartilhar</span>
+    </footer>
+
     <script>
       (() => {
         const PASSWORD = 'hulkenbergdagoat';
@@ -245,7 +435,7 @@
           <div class="auth-box">
             <p class="auth-title">Joice & Pedro</p>
             <p class="auth-subtitle">Digite a senha para acessar</p>
-            <input type="password" id="auth-input" placeholder="Senha" autocomplete="off">
+            <input type="password" id="auth-input" placeholder="senha" autocomplete="off" />
             <button id="auth-btn">Entrar</button>
             <p id="auth-error"></p>
           </div>
@@ -254,7 +444,7 @@
         document.body.style.visibility = 'visible';
 
         const input = document.getElementById('auth-input');
-        const btn = document.getElementById('auth-btn');
+        const btn   = document.getElementById('auth-btn');
         const error = document.getElementById('auth-error');
 
         function attempt() {
@@ -262,7 +452,7 @@
             sessionStorage.setItem(KEY, 'true');
             overlay.remove();
           } else {
-            error.textContent = 'Senha incorreta';
+            error.textContent = 'senha incorreta';
             input.value = '';
             input.focus();
           }
@@ -276,5 +466,6 @@
         input.focus();
       })();
     </script>
+
   </body>
 </html>

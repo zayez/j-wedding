@@ -110,9 +110,9 @@ body {
 }
 
 .section {
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 /* ====== HERO ====== */
@@ -179,25 +179,25 @@ body {
 
 .hero-script {
   font-family: "Pinyon Script", cursive;
-  font-size: 2.4rem;
+  font-size: 4.5rem;
   color: var(--gold);
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .hero-name {
   font-family: "Bodoni Moda", serif;
-  font-size: 2.2rem;
+  font-size: 3.5rem;
   color: var(--cream);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .hero-amp {
   font-family: "Cormorant", serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 3.2rem;
   line-height: 1;
   background: linear-gradient(
     90deg,
@@ -221,11 +221,11 @@ body {
 .message {
   font-family: "EB Garamond", serif;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.55rem;
   line-height: 1.75;
   color: var(--cream-soft);
   text-align: center;
-  max-width: 320px;
+  max-width: 440px;
   margin: 0 auto;
 }
 
@@ -241,8 +241,8 @@ body {
 
 .cal-month {
   font-family: "Bodoni Moda", serif;
-  font-size: 1.3rem;
-  letter-spacing: 0.4em;
+  font-size: 2rem;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--cream-soft);
 }
@@ -282,7 +282,7 @@ body {
 .cal-year {
   font-family: "Cormorant Infant", serif;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   letter-spacing: 0.3em;
   color: var(--text-muted);
 }
@@ -325,14 +325,15 @@ body {
 
 .venue-label {
   font-family: "Pinyon Script", cursive;
-  font-size: 2.2rem;
+  font-size: 3.8rem;
   color: var(--gold);
   margin-bottom: 0.3rem;
+  line-height: 1.2;
 }
 
 .venue-name {
   font-family: "Bodoni Moda", serif;
-  font-size: 1.1rem;
+  font-size: 1.45rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--cream);
@@ -340,10 +341,10 @@ body {
 
 .venue-address {
   font-family: "EB Garamond", serif;
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 260px;
+  max-width: 300px;
 }
 
 .venue-rule {
@@ -355,7 +356,7 @@ body {
 
 .venue-time-label {
   font-family: "Cormorant", serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -364,7 +365,7 @@ body {
 .venue-time {
   font-family: "Cormorant Infant", serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   color: var(--cream);
   letter-spacing: 0.1em;
 }
@@ -382,7 +383,7 @@ body {
 .cta h2 {
   font-family: "Cormorant", serif;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.9rem;
   color: var(--cream-soft);
   margin-bottom: 0.5rem;
 }
@@ -423,14 +424,14 @@ body {
 }
 
 .btn-label {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 .btn-sub {
   font-family: "EB Garamond", serif;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   opacity: 0.6;
   margin-top: 2px;
 }
@@ -709,53 +710,90 @@ body {
 
 @media (min-width: 480px) {
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 5rem;
   }
 
   .hero-script {
-    font-size: 2.8rem;
+    font-size: 6rem;
   }
 
   .hero-amp {
-    font-size: 2.2rem;
+    font-size: 4.5rem;
+  }
+
+  .message {
+    font-size: 1.75rem;
+  }
+
+  .venue-label {
+    font-size: 5rem;
   }
 
   .gift-title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
 @media (min-width: 768px) {
   .section {
-    max-width: 560px;
+    max-width: 680px;
   }
 
   .gift-page {
-    max-width: 560px;
+    max-width: 680px;
   }
 
   .footer {
-    max-width: 560px;
+    max-width: 680px;
   }
 
   .flourish {
-    max-width: 560px;
+    max-width: 680px;
   }
 
   .hero-name {
-    font-size: 3.2rem;
-    letter-spacing: 0.15em;
+    font-size: 6.5rem;
+    letter-spacing: 0.1em;
   }
 
   .hero-script {
-    font-size: 3.2rem;
+    font-size: 8rem;
+  }
+
+  .hero-amp {
+    font-size: 5.5rem;
+  }
+
+  .message {
+    font-size: 2rem;
+    max-width: 520px;
+  }
+
+  .cal-month {
+    font-size: 2.8rem;
+  }
+
+  .venue-label {
+    font-size: 6rem;
+  }
+
+  .venue-name {
+    font-size: 1.7rem;
+  }
+
+  .venue-time {
+    font-size: 3rem;
+  }
+
+  .cta h2 {
+    font-size: 2.4rem;
   }
 
   .gold-rule {
-    width: 220px;
+    width: 260px;
   }
 
   .gift-title {
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
 }
