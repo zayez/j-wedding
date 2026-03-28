@@ -39,6 +39,7 @@ body {
   max-width: 540px;
   position: relative;
   overflow: hidden;
+  padding: 0 2rem;
 }
 
 /* ====== PAGE 1 - INVITE ====== */
@@ -106,8 +107,8 @@ body {
   font-size: 4rem;
   color: var(--text);
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
   line-height: 1.05;
 }
 
@@ -115,11 +116,11 @@ body {
 .names {
   text-align: center;
   color: var(--names);
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.4rem;
 }
 
 .names .name {
@@ -148,9 +149,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin: 2rem 2rem;
-  padding: 1.5rem 0;
+  gap: 1.5rem;
+  margin: 4rem 0;
+  padding: 2rem 0;
 }
 
 .message .leaf {
@@ -178,11 +179,11 @@ body {
 /* Calendar section */
 .calendar {
   text-align: center;
-  margin: 3.5rem 0;
+  margin: 6rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .calendar .month {
@@ -227,8 +228,8 @@ body {
 /* Location section */
 .location-wrapper {
   position: relative;
-  width: 100%;
-  margin: 4rem 0;
+  width: calc(100% + 4rem);
+  margin: 6rem -2rem;
   overflow: hidden;
 }
 
@@ -294,11 +295,11 @@ body {
 /* CTA section */
 .cta-section {
   text-align: center;
-  margin: 5rem 0 4rem;
+  margin: 7rem 0 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .cta-section h2 {
@@ -349,12 +350,13 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  margin: 4rem 0;
+  margin: 6rem -2rem 0;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  width: 100%;
+  gap: 2.5rem;
+  width: calc(100% + 4rem);
 }
 
 .footer .rings {
